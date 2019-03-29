@@ -90,7 +90,7 @@ public class Reduce {
         double median = 0;
         int size = arrayList.size();
         if (size % 2 == 0){
-            median = ((Integer)singleLink.getNode(size/2)+(Integer)singleLink.getNode(size/2+1))/2;
+            median = (double)((Integer)singleLink.getNode(size/2)+(Integer)singleLink.getNode(size/2+1))/2;
         }
         else{
             median = (Integer)singleLink.getNode(size/2+1);
