@@ -2,8 +2,7 @@ package com.thoughtworks.collection;
 
 import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 
 public class MyMap {
 
@@ -17,22 +16,55 @@ public class MyMap {
     }
 
     public List<Integer> getTriple() {
-        throw new NotImplementedException();
+        List<Integer> tripleList = new ArrayList<>();
+        for (int i = 0; i < array.size(); i++) {
+            tripleList.add(3*array.get(i));
+        }
+        return tripleList;
     }
 
     public List<String> mapLetter() {
-        throw new NotImplementedException();
+        List<String> letterList = new ArrayList<>();
+        for (int i = 0; i < array.size(); i++) {
+            letterList.add(letters[array.get(i)-1]);
+        }
+        return letterList;
     }
 
     public List<String> mapLetters() {
-        throw new NotImplementedException();
+        List<String> lettersList = new ArrayList<>();
+        for (int i = 0; i < array.size(); i++) {
+            Integer cur = array.get(i);
+            String curLetters = "";
+            int m = cur / 26;
+            int n = cur % 26;
+            if (m == 0){ curLetters = letters[n-1];}
+            else{
+                if (n == 0){ m -= 1; n = 26;}
+                curLetters = letters[m-1]+letters[n-1];
+            }
+            lettersList.add(curLetters);
+        }
+        return lettersList;
     }
 
     public List<Integer> sortFromBig() {
-        throw new NotImplementedException();
+        List<Integer> sortedList = new ArrayList<>();
+        for (int i = 0; i < array.size(); i++) {
+            sortedList.add(array.get(i));
+        }
+        Comparator<Integer> reverseComparator = Collections.reverseOrder();
+        Collections.sort(sortedList, reverseComparator);
+        return sortedList;
     }
 
     public List<Integer> sortFromSmall() {
-        throw new NotImplementedException();
+        List<Integer> sortedList = new ArrayList<>();
+        for (int i = 0; i < array.size(); i++) {
+            sortedList.add(array.get(i));
+        }
+        Collections.sort(sortedList);
+        return sortedList;
+
     }
 }
